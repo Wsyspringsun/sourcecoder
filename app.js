@@ -37,7 +37,25 @@ app.use('/wechat', wechat(config, function(req, res, next) {
 	// 微信输入信息都在req.weixin上
 	var message = req.weixin;
     console.log(message);
+    var strMsg = '';
+    var htmlMsg = '<ul>';
+    var imgMsg = '';
+    for(k in message){
+        var strline = k+':'+message[k]+';\r\n';
+        strMsg += strline;
+        htmlMsg += '<li>'+strline+'</li>';
+    }
+    htmlMsg+='</ul>';
     res.reply('hello');
+    res.reply(strMsg);
+    res.reply(htmlMsg);
+    res.reply({
+          type: "image",
+          content: {
+              mediaId: 'mediaId',
+              picurl:'http://image.baidu.com/search/detail?ct=503316480&z=&tn=baiduimagedetail&ipn=d&word=%E8%8B%B1%E9%9B%84&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=-1&cs=529237590,3212224644&os=3949005886,1443351653&simid=719621,586131151&pn=7&rn=1&di=125162599430&ln=1935&fr=&fmq=1475096158631_R&fm=ala&ic=0&s=undefined&se=&sme=&tab=0&width=&height=&face=undefined&is=0,0&istype=2&ist=&jit=&bdtype=0&adpicid=0&pi=0&gsm=0&objurl=http%3A%2F%2Fi2.17173cdn.com%2Fi7mz64%2FYWxqaGBf%2Ftu17173com%2F20141113%2FHMDYdNbjgtFbAtE.jpg&rpstart=0&rpnum=0&adpicid=0'
+          }
+    });
 	////if (message.FromUserName === 'diaosi') {
 	////	// 回复屌丝(普通回复)
 	////	res.reply('hehe');
