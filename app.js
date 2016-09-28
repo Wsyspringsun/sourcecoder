@@ -46,8 +46,6 @@ app.use('/wechat', wechat(config, function(req, res, next) {
         htmlMsg += '<li>'+strline+'</li>';
     }
     htmlMsg+='</ul>';
-    res.reply('hello');
-    res.reply(strMsg);
     res.reply(htmlMsg);
     res.reply({
           type: "image",
