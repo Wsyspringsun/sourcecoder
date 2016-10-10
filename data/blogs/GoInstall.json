@@ -1,0 +1,38 @@
+<p class='lead'>这里简单介绍Go语言开发环境的搭建</p>
+<strong>安装Go</strong><br/>
+<p>
+主要说一下各平台比较常用的方式，不会详细介绍各种方式，如需要查看各种方式可查看<a href="https://github.com/astaxie/build-web-ap
+plication-with-golang/blob/master/zh/01.1.md">这里</a>
+</p>
+<strong>Windows平台下的安装</strong><br/>
+<p>
+访问<a href="http://golang.org/dl/">Google Code 下载页</a>，32 位请选择名称中包含 windows-386 的 msi 安装包，64 位请选择名称中
+包含 windows-amd64 的。下载好后运行，不要修改默认安装目录 C:\Go\，若安装到其他位置会导致不能执行自己所编写的 Go 代码。安装完成
+后默认会在环境变量 Path 后添加 Go 安装目录下的 bin 目录 C:\Go\bin\，并添加环境变量 GOROOT，值为 Go 安装根目录 C:\Go\ 。
+</p>
+<strong>Linux(Ubuntu)平台</strong><br/>
+<p>
+输入Ctrl+t 进入终端，sudo 指要用管理员权限执行，apt-get 是Ubuntu系统的包管理工具
+<pre>
+    sudo apt-get install python-software-properties
+    sudo add-apt-repository ppa:gophers/go
+    sudo apt-get update
+    sudo apt-get install golang-stable 
+</pre>
+</p>
+<strong>Mac平台</strong><br/>
+<p>
+直接使用homebrew进行安装，进入iTerm之类的终端，输入以下命令
+<pre>
+    brew update && brew upgrade
+    brew install go
+</pre>
+</p>
+<p>
+完成安装后可以测试以下是否成功，在终端输入go即可,出现以下内容就算是成功了
+<pre>
+ Go is a tool for managing Go source code.
+ ...
+</pre>
+结束。
+</p>
